@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Station Capacity Tracker</title>
+</head>
+<body>
+    <h2>Train Station Capacity Tracker</h2>
+    <label for="name">Station Name:</label>
+    <input type="text" id="name" placeholder="Enter station name">
+    <br></br>
+    <label for="max">Maximum Capacity:</label>
+    <input type="number" id="max" placeholder="Enter station capacity">
+    <br></br>
+    <label for="initial">Initial Number of Trains:</label>
+    <input type="number" id="initial" placeholder="Enter initial number of trains">
+    <br></br>
+    <button onclick="display()">Check</button>
+    <p id="result"></p>
+    <script>
+        function display() {
+            let name = document.getElementById("name").value;
+            let max = document.getElementById("max").value;
+            let initial = document.getElementById("initial").value;
+            let message= document.getElementById("result");
+            if (name=== "" || max=== "" || initial=== "") {
+                alert("Please enter station name, capacity, and initial number of trains.");
+                return;
+            }
+            max = parseInt(max);
+            initial = parseInt(initial);
+            if (initial>max) {
+                alert("Number of trains have exceeded maximum capacity.");
+                return;
+            }
+            else{
+                message.textContent="The number of trains is within the Station Capacity";
+            }
+            document.getElementById("name").value = "";
+            document.getElementById("max").value = "";
+            document.getElementById("initial").value = "";
+        }
+    </script>
+</body>
+</html>
